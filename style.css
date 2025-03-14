@@ -110,6 +110,10 @@ a {
         padding: 5rem 0 ;
         transition: all 0.4s 0.1s;
     }
+    .pSocial {
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
     .btnsSocial {
         width: 300px;
         margin: 0 0 0.5rem;

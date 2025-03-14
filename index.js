@@ -2,7 +2,7 @@ const myTrack = [
     {
         nameMusic: "Tanhaei",
         artist: "Ehyaa",
-        cover: "./images/Picsart_24-03-11_22-35-18-821.jpg",
+        cover: "./covers/Tanhaei - Ehyaa.jpg",
         download: "./music/test.mp3",
         urlSoundCloud: "",
         urlYouTube: "",
@@ -68,7 +68,7 @@ instagram.addEventListener('click', () => {
     window.open("", '_blank');
 })
 telegram.addEventListener('click', () => {
-    window.open("", '_blank');
+    window.open("https://t.me/EhyaaChannel", '_blank');
 })
 youTube.addEventListener('click', () => {
     window.open("", '_blank');
