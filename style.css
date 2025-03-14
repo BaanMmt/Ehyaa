@@ -1,0 +1,229 @@
+/* @font-face {
+    font-family: 'MikhakMedium';
+    src: url("https://aminabedi68.github.io/Mikhak/Mikhak/Mikhak-Medium.woff2") format('woff2');
+} */
+* {
+    margin: 0;
+    padding: 0;
+    /* font-family: "MikhakMedium"; */
+
+}
+li{
+    list-style-type: none;
+}
+p {
+    line-height: 1.3rem;
+}
+a {
+    text-decoration: none;
+}
+:root{
+    --Header: #616161;
+    --true: rgba(0, 0, 0, 0.6);
+    --false: rgba(0, 0, 0, 0.23);
+    --player1: rgba(0, 0, 0, 0.53);
+    --sabz: #009688;
+    --white: #f5f5f5;
+    --soundcloud: #ff5500 ;
+    --telegram: #0088cc ;
+    --youtue: #ff0000;
+
+}
+.hidden {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .banner {
+        background: url("./images/Picsart_24-03-11_22-35-18-821.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        /* height: 120px; */
+    }
+    header {
+        background: var(--Header);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    h1 {
+        margin: 2.5rem 0 0;
+        color: white;
+    }
+    .profile {
+        overflow: hidden;
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateY(55px);
+        border: 0.1rem solid black;
+    }
+    .profile:hover {
+        height: 200px;
+        width: 200px;
+        transform: translateY(0);
+        border-radius: 5px;
+        transition: all 1s;
+        margin-bottom: 0.4rem;
+    }
+    .profile img:hover {
+        height: 200px;
+    }
+    .profile img{
+        transition: all 1s;
+        height: 80px;
+    }
+    .khatBox {
+        display: flex;
+        width: 100%; 
+    }
+    #socialBtn , #musicsBtn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.3rem 0;
+        color: white;
+        border: none;
+        outline: none;
+    }
+    .trueBack {
+        background: var(--true);
+    }
+    .falseBack {
+        background: var(--false);
+    }
+
+    main , body {
+        background: var(--white);
+    }
+   
+    #articleSocial {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5rem 0 ;
+        transition: all 0.4s 0.1s;
+    }
+    .btnsSocial {
+        width: 300px;
+        margin: 0 0 0.5rem;
+        padding: 0.2rem 1rem;
+        border-radius: 20px;
+        color: white;
+        text-align: center;
+        transition: all 0.5s 0.1s;
+    }
+    #soundCloud {
+        background: var(--soundcloud);
+    }
+    .btnsSocial:hover {
+        /* border: 0.05rem solid black; */
+        border-radius: 5px;
+        padding: 0.3rem 1rem;
+
+    }
+    #instagram {
+        background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #a02b8d);
+    }
+    #telegram {
+        background: var(--telegram);
+    }
+    #youTube {
+        background: var(--youtue);
+    }
+    #articleMusics {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5rem 0 ;
+        gap: 10px;
+    }
+    .newMusic {
+        border: 0.07rem solid var(--sabz);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        border-radius: 10px;
+        transition: all 0.2s 0.1s;
+    }
+    .newMusic:hover {
+        background: var(--sabz);
+        color: white;
+        border-radius: 25px;
+    }
+    .musicPlayer {
+        display: flex;
+        background: none;
+        border-radius: 10px;
+        transition: all 0.2s 0.1s;
+        overflow: hidden;
+        width: 70%;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+    }
+    .coverContainer {
+        position: relative;
+        width: 66px;
+        height: 66px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.6rem;
+        /* background: var(--sabz); */
+    }
+    .coverContainer .cover {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        background-size: cover;
+        overflow: hidden;
+        
+    }
+    .coverContainer .defaultCover {
+        width: 100%;
+        height: 100%;
+        background: var(--sabz);
+    }
+    .playBtn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.5rem;
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.4);
+        /* border-radius: 50%; */
+        padding: 10px;
+    }
+    .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1rem;
+        width: 64%;
+    }
+    .trackName {
+        font-weight: bold;
+    }
+    .artistName {
+        color: rgba(255, 255, 255, 0.75);
+    }
+    .progress {
+        width: 100%;
+    }
+    .timer {
+        color: rgba(255, 255, 255, 0.75);
+    }
+}
