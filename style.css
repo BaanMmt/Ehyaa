@@ -18,12 +18,12 @@ a {
     text-decoration: none;
 }
 :root{
-    --Header: #616161;
+    --Header: #3e3c3c;
     --true: rgba(0, 0, 0, 0.6);
     --false: rgba(0, 0, 0, 0.23);
     --player1: rgba(0, 0, 0, 0.53);
     --sabz: #009688;
-    --white: #f5f5f5;
+    --white: #e0dddd;
     --soundcloud: #ff5500 ;
     --telegram: #0088cc ;
     --youtue: #ff0000;
@@ -35,11 +35,11 @@ a {
 
 @media (max-width: 480px) {
     .banner {
-        background: url("./images/Picsart_24-03-11_22-35-18-821.jpg");
+        background: url("./images/Banner.jpg");
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
-        /* height: 120px; */
+        height: 120px;
     }
     header {
         background: var(--Header);
@@ -49,8 +49,8 @@ a {
         align-items: center;
     }
     h1 {
-        margin: 2.5rem 0 0;
         color: white;
+        
     }
     .profile {
         overflow: hidden;
@@ -114,6 +114,7 @@ a {
         width: 300px;
         margin: 0 0 0.5rem;
         padding: 0.2rem 1rem;
+        border: 0.05rem solid black;
         border-radius: 20px;
         color: white;
         text-align: center;
@@ -123,7 +124,7 @@ a {
         background: var(--soundcloud);
     }
     .btnsSocial:hover {
-        /* border: 0.05rem solid black; */
+        border: none;
         border-radius: 5px;
         padding: 0.3rem 1rem;
 
