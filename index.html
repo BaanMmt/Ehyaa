@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#f5d72b">
+    <meta name="theme-color" content="#000">
     <meta name="author" content="BaanMmt">
-    <title>Ehyaa</title>
+    <title></title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div class="banner"></div>
     <header>
-        <h1>Ehyaa</h1>
+        <h1 id="h1"></h1>
         <div class="profile">
-            <img src="./images/Profile.jpg" alt="VANDAL">
+            <img id="profile" >
         </div>
         <div class="khatBox">
             <button class="dokme" id="socialBtn">social</button>
@@ -23,17 +23,52 @@
 
     </header>
     <main>
-        <article id="articleSocial" class="hidden">
+        <article id="articleSocial" class="hidden" >
             <p class="pSocial">My social Media Pages</p>
             <div class="btnsSocial" id="soundCloud">SoundCloud</div>
             <div class="btnsSocial" id="instagram">Instagram</div>
             <div class="btnsSocial" id="telegram">Telegram</div>
+            <div class="btnsSocial" id="youTube">YouTube</div>
             <!-- <div class="btnsSocial" id="youTube">YouTube</div> -->
         </article>
         <article id="articleMusics" class="hidden">
-            <div class="tracks">
-                <p>Bad Zone<span>&nbsp;- Ehyaa</span></p>
+        </article>
+        <article id="articleMusicPlayer">
+            <p class="close">+</p>
+            <div class="boxTitleMusicPlayer">
+                <p class="pBold"></p>
+                <button class="dlBtn">Download</button>
             </div>
+            <div class="musicPlayer">
+                <div class="boxCoverMusic">
+                    <div class="circleCover">
+                        <img class="coverMusicPlayer">
+                        <div class="boxPlayMusicPlayer">
+                            <button class="iconsPlayMusicPlayer" id="playMusicPlayerBtn">
+                                Play
+                            </button>
+                            <button class="iconsPlayMusicPlayer" id="stopMusicPlayerBtn" >
+                                Stop
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="boxInfoMusic">
+                    <p class="titleMusicPlayer"></p>
+                    <p class="ArtistMusicPlayer"></p>
+                    <input type="range" value="0" id="rangeMusicPlayer">
+                    <p class="timerMusicPlayer"><span class="startTimerMusicPlayer">0:00</span> / <span class="endTimerMusicPlayer">0:00</span></p>
+                </div>
+            </div>
+            <div class="soundCloudPlayer">
+                <p>Listening from <span style="font-weight: bold;">SoundCloud</span>:</p>
+                <iframe id="iframeSoundCloud" frameborder="0"></iframe>
+            </div>
+            <div class="youTubePlayer">
+                <p>Listening from <span style="font-weight: bold;">YouTube</span>:</p>
+                <iframe id="iframeYouTube" frameborder="0"></iframe>
+            </div>
+            
         </article>
     </main>
     <script src="./index.js"></script>

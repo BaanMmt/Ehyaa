@@ -1,29 +1,38 @@
+const pageName = "Ehyaa";
+const imgBanner = "./images/Banner.jpg";
+const imgProfile = "./images/Profile.jpg";
+const mySocialMediaPages = [
+    {instagram: ""},
+    {telegram: "https://t.me/EhyaaChannel"},
+    {soundCloud: ""},
+    {youTube: ""}
+];
 const myTrack = [
     {
         nameMusic: "Tanhaei",
         artist: "Ehyaa",
-        cover: "./covers/Tanhaei - Ehyaa.jpg",
-        download: "./music/test.mp3",
+        cover: "./images/Banner.jpg",
+        urlMusic: "https://tanhaei.ehyaa",
         urlSoundCloud: "",
-        urlYouTube: "",
-    },
-    {
+        urlYouTube: "https://www.youtube.com/watch?v=BmuqgZ9bj3c",
+    },{
         nameMusic: "Bad Zone",
         artist: "Ehyaa",
-        cover: "./covers/Bad Zone - Ehyaa.jpg",
-        download: "./tracks/Ehyaa - Bad Zone.mp3",
-        urlSoundCloud: "",
-        urlYouTube: "",
+        cover: "./images/Profile.jpg",
+        urlMusic: "https://badzone.ehyaa",
+        urlSoundCloud: "https://soundcloud.com/reza-pishro-rail/qabil-1",
+        urlYouTube: "https://www.youtube.com/watch?v=BmuqgZ9bj3c",
     },
-    {
-        nameMusic: "",
-        artist: "Ehyaa",
-        cover: "",
-        download: "",
-        urlSoundCloud: "",
-        urlYouTube: "",
-    }
 ];
+
+// ---------------------------------
+
+document.title = pageName;
+document.querySelector('#h1').innerText = pageName ;
+document.querySelector('.banner').style.backgroundImage = `url(${imgBanner})`;
+const profile = document.querySelector("#profile");
+profile.src = imgProfile ; profile.alt = pageName ;
+
 
 // ---------------------------------
 
@@ -56,58 +65,107 @@ socialBtn.addEventListener('click', () => {
     socialBtn.classList.remove('falseBack')
 })
 
+
+// ---------------------------------
+
 const soundCloud = document.querySelector("#soundCloud");
 const instagram = document.querySelector("#instagram");
 const telegram = document.querySelector("#telegram");
 const youTube = document.querySelector("#youTube");
 
 soundCloud.addEventListener('click', () => {
-    window.open("", '_blank');
+    const soundCloudUrl = mySocialMediaPages.find(item => item.soundCloud).soundCloud;
+    window.open(soundCloudUrl, '_blank');
 })
 instagram.addEventListener('click', () => {
+    const instagramUrl = mySocialMediaPages.find(item => item.instagram).instagram;
     window.open("", '_blank');
 })
 telegram.addEventListener('click', () => {
-    window.open("https://t.me/EhyaaChannel", '_blank');
+    const telUrl = mySocialMediaPages.find(item => item.telegram).telegram;
+    window.open(telUrl, '_blank');
 })
 youTube.addEventListener('click', () => {
-    window.open("", '_blank');
+    const youTubeUrl = mySocialMediaPages.find(item => item.youTube).youTube;
+    window.open(youTubeUrl, '_blank');
+})
+
+
+// ---------------------------------
+
+const articleMusicPlayer = document.querySelector('#articleMusicPlayer')
+const closeBtn = document.querySelector('.close');
+articleMusicPlayer.style.display = 'none';
+
+closeBtn.addEventListener('click', () => {
+    articleMusicPlayer.style.display = 'none';
+})
+
+// ---------------------------------
+
+const playedMusicPlayer = document.querySelector(".circleCover");
+const playBtn = document.querySelector('#playMusicPlayerBtn');
+const stopBtn = document.querySelector("#stopMusicPlayerBtn");
+
+stopBtn.classList.add("hidden")
+
+playedMusicPlayer.addEventListener('click', () => {
+    
 })
 
 
 
+// ---------------------------------
+
+
 myTrack.forEach(track => {
-    const playerContainer = document.createElement('div');
-    playerContainer.classList.add("musicPlayer");
-    const coverContainer = document.createElement('div');
-    coverContainer.classList.add("coverContainer");
-    const coverImage = track.cover ? `<img src="${track.cover}" class="cover" />` : '';
-    coverContainer.innerHTML = coverImage || '<div class="defaultCover"></div>';
 
-    const playBtn = document.createElement('div');
-    playBtn.classList.add('playBtn');
-    playBtn.innerText = "Play";
+    const tracks = document.createElement('div');
+    tracks.classList.add('tracks');
+    tracks.style.backgroundImage = `url(${track.cover})`;
 
-    coverContainer.appendChild(playBtn);
+    tracks.innerHTML = `<p>${track.nameMusic}<span>&nbsp;- ${track.artist}</span></p>`;
+    musicsPage.appendChild(tracks);
 
-    const infoContainer = document.createElement('div');
-    infoContainer.classList.add('info');
-    infoContainer.innerHTML = `
-    <div class="trackName">${track.nameMusic}</div>
-    <div class="artistName">${track.artist}</div>
-    <input type="range" class="progress" value="0" />
-    <div class="timer">0:00 / 0:00</div>
-    `;
+    tracks.addEventListener('click', ()=> {
+        articleMusicPlayer.style.display = 'flex';
+        const boxTitleMusicPlayerP = document.querySelector('.pBold');
+        boxTitleMusicPlayerP.innerHTML = `${track.nameMusic}<span>&nbsp;- ${track.artist}</span>`;
+        const dlBtn = document.querySelector('.dlBtn');
+        dlBtn.addEventListener('click', () => {
+            window.open(track.urlMusic)
+        })
+        const coverMusicPlayer = document.querySelector('.coverMusicPlayer');
+        coverMusicPlayer.src = `${track.cover}`; coverMusicPlayer.alt = `${track.nameMusic} - ${track.artist}`;
 
-    playerContainer.appendChild(coverContainer);
-    playerContainer.appendChild(infoContainer);
+        const titleMusicPlayer = document.querySelector('.titleMusicPlayer');
+        titleMusicPlayer.innerHTML = `${track.nameMusic}`;
+        const ArtistMusicPlayer = document.querySelector('.ArtistMusicPlayer');
+        ArtistMusicPlayer.innerHTML = `${track.artist}`;
 
-    musicsPage.appendChild(playerContainer);
-    playBtn.onclick = () => {
+        const iframeSoundCloud = document.querySelector('#iframeSoundCloud');
+        iframeSoundCloud.src = `${track.urlSoundCloud}`;
+        const soundCloudPlayer = document.querySelector('.soundCloudPlayer');
         
-    }
-})
+        if (track.urlSoundCloud === '') {
+            soundCloudPlayer.style.display = "none";
+        } else {
+            iframeSoundCloud.src = track.urlSoundCloud;
+            soundCloudPlayer.style.display = 'flex';
+        }
 
-myTrack.forEach(track => {
+        const iframeYouTube = document.querySelector('#iframeYouTube');
+        iframeYouTube.src = `${track.urlYouTube}`;
+        const youTubePlayer = document.querySelector('.youTubePlayer');
+
+        if (track.urlYouTube === '') {
+            youTubePlayer.style.display = "none";
+        } else {
+            iframeYouTube.src = track.urlYouTube;
+            youTubePlayer.style.display = 'flex';
+        }
+        
+        
+    })
     
 })
