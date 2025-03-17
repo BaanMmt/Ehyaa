@@ -2,10 +2,10 @@ const pageName = "EHYAA";
 const imgBanner = "./images/Banner.jpg";
 const imgProfile = "./images/Profile.jpg";
 const mySocialMediaPages = [
-    {instagram: ""},
+    {instagram: "https://instagram.com/ehyaaofficial"},
     {telegram: "https://t.me/EhyaaChannel"},
     {soundCloud: ""},
-    {youTube: ""}
+    {youTube: "not page!"}
 ];
 const myTrack = [
     {
@@ -13,8 +13,8 @@ const myTrack = [
         artist: "Ehyaa",
         cover: "./covers/Tanhaei%20-%20Ehyaa.jpg",
         urlMusic: "./tracks/Ehyaa%20-%20Tanhaei.mp3",
-        urlSoundCloud: "",
-        urlYouTube: "https://www.youtube.com/watch?v=BmuqgZ9bj3c",
+        urlSoundCloud: "https://on.soundcloud.com/anvvnDJeGcJotCKY9",
+        urlYouTube: "https://www.youtube.com/embed/BmuqgZ9bj3c",
     },{
         nameMusic: "Bad Zone",
         artist: "Ehyaa",
@@ -151,7 +151,7 @@ myTrack.forEach(track => {
         if (track.urlSoundCloud === '') {
             soundCloudPlayer.style.display = "none";
         } else {
-            iframeSoundCloud.src = track.urlSoundCloud;
+            iframeSoundCloud.src = `https://w.soundcloud.com/player/?url=${encodeURIComponent(track.urlSoundCloud)}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true`;
             soundCloudPlayer.style.display = 'flex';
         }
 
@@ -166,7 +166,6 @@ myTrack.forEach(track => {
             youTubePlayer.style.display = 'flex';
         }
         const audio = new Audio(track.urlMusic);
-
         playedMusicPlayer.addEventListener('click', () => {
 
             if (isPlaying) {
@@ -178,6 +177,7 @@ myTrack.forEach(track => {
                 audio.play();
                 stopBtn.classList.remove('hidden');
                 playBtn.classList.add('hidden');
+                updateTimer();
             }
             isPlaying = !isPlaying;
             closeBtn.addEventListener('click', () => {
@@ -188,6 +188,33 @@ myTrack.forEach(track => {
                 
             })
         });
+        
+        function updateTimer() {
+            const duration = audio.duration;
+            endTimer.textContent = formatTime(duration);
+            rangeMusicPlayer.max = 100;
+
+            audio.ontimeupdate = () => {
+                const currentTime =audio.currentTime;
+                startTimer.textContent = formatTime(currentTime);
+
+                const value = (currentTime / duration) * 100;
+                rangeMusicPlayer.value = value;
+
+                if (currentTime === duration) {
+                    isPlaying = false;
+                    stopBtn.classList.add('hidden');
+                    playBtn.classList.remove('hidden');
+                    rangeMusicPlayer.value = 0;
+                    startTimer.textContent = '0:00';
+                }
+            };
+            function formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+            }
+        }
         
     })
     
