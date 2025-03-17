@@ -1,4 +1,4 @@
-const pageName = "Ehyaa";
+const pageName = "EHYAA";
 const imgBanner = "./images/Banner.jpg";
 const imgProfile = "./images/Profile.jpg";
 const mySocialMediaPages = [
@@ -11,15 +11,15 @@ const myTrack = [
     {
         nameMusic: "Tanhaei",
         artist: "Ehyaa",
-        cover: "./images/Banner.jpg",
-        urlMusic: "https://tanhaei.ehyaa",
+        cover: "./covers/Tanhaei%20-%20Ehyaa.jpg",
+        urlMusic: "./tracks/Ehyaa%20-%20Tanhaei.mp3",
         urlSoundCloud: "",
         urlYouTube: "https://www.youtube.com/watch?v=BmuqgZ9bj3c",
     },{
         nameMusic: "Bad Zone",
         artist: "Ehyaa",
-        cover: "./images/Profile.jpg",
-        urlMusic: "https://badzone.ehyaa",
+        cover: "./covers/Bad%20Zone%20-%20Ehyaa.jpg",
+        urlMusic: "./tracks/Ehyaa%20-%20Bad%20Zone.mp3",
         urlSoundCloud: "https://soundcloud.com/reza-pishro-rail/qabil-1",
         urlYouTube: "https://www.youtube.com/watch?v=BmuqgZ9bj3c",
     },
@@ -106,12 +106,13 @@ closeBtn.addEventListener('click', () => {
 const playedMusicPlayer = document.querySelector(".circleCover");
 const playBtn = document.querySelector('#playMusicPlayerBtn');
 const stopBtn = document.querySelector("#stopMusicPlayerBtn");
+const rangeMusicPlayer = document.querySelector("#rangeMusicPlayer");
+const startTimer = document.querySelector('.startTimerMusicPlayer');
+const endTimer = document.querySelector('.endTimerMusicPlayer');
 
 stopBtn.classList.add("hidden")
 
-playedMusicPlayer.addEventListener('click', () => {
-    
-})
+let isPlaying = false ;
 
 
 
@@ -164,7 +165,29 @@ myTrack.forEach(track => {
             iframeYouTube.src = track.urlYouTube;
             youTubePlayer.style.display = 'flex';
         }
-        
+        const audio = new Audio(track.urlMusic);
+
+        playedMusicPlayer.addEventListener('click', () => {
+
+            if (isPlaying) {
+                audio.pause();
+                // audio = null;
+                stopBtn.classList.add('hidden');
+                playBtn.classList.remove('hidden')
+            } else {
+                audio.play();
+                stopBtn.classList.remove('hidden');
+                playBtn.classList.add('hidden');
+            }
+            isPlaying = !isPlaying;
+            closeBtn.addEventListener('click', () => {
+                if (audio) {
+                    audio.pause();
+                    audio = null;
+                }
+                
+            })
+        });
         
     })
     
