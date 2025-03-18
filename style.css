@@ -2,10 +2,23 @@
     font-family: 'MikhakMedium';
     src: url("https://aminabedi68.github.io/Mikhak/Mikhak/Mikhak-Medium.woff2") format('woff2');
 } */
+ @font-face {
+    font-family: 'Gandom';
+    src: url("./fonts/Gandom.woff") format('woff');
+ }
+ @font-face {
+    font-family: 'Lemon Milk';
+    src: url('./fonts/Lemon-Milk-Bold.otf') format('otf');
+ }
+ @font-face {
+    font-family: 'Nixmat';
+    src: url('./fonts/Nixmat.ttf') format('ttf');
+ }
 * {
     margin: 0;
     padding: 0;
     /* font-family: "MikhakMedium"; */
+    font-family: 'Gandom';
 
 }
 li{
@@ -51,7 +64,7 @@ a {
     h1 {
         color: white;
         font-size: 90px;
-        
+        font-family: "Nixmat";
     }
     .profile {
         overflow: hidden;
@@ -93,6 +106,7 @@ a {
         color: white;
         border: none;
         outline: none;
+        font-family: "Lemon Milk";
     }
     .trueBack {
         background: var(--true);
@@ -126,6 +140,7 @@ a {
         border-radius: 20px;
         text-align: center;
         transition: all 0.5s 0.1s;
+        font-family: "Lemon Milk";
     }
     #soundCloud {
         background: var(--soundcloud);

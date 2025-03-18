@@ -1,4 +1,4 @@
-const pageName = "EHYAA";
+const pageName = "Ehyaa";
 const imgBanner = "./images/Banner.jpg";
 const imgProfile = "./images/Profile.jpg";
 const mySocialMediaPages = [
